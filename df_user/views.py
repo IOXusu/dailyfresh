@@ -11,7 +11,7 @@ from hashlib import sha1
 
 # Create your views here.
 def register(request):
-    return render(request, 'df_user/register.html')
+    return render(request, 'df_user/register.html',{'title': "天天生鲜-注册"})
 
 
 def register_handle(request):
@@ -44,3 +44,7 @@ def register_exist(request):
     uname = request.GET.get('uname')
     count = UserInfo.objects.filter(uname=uname).count()
     return JsonResponse({'count': count})
+
+
+def login(request):
+    return render(request, 'df_user/login.html',{'title': "天天生鲜-登录"})
